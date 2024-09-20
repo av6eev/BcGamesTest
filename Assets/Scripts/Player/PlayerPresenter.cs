@@ -1,6 +1,7 @@
 ﻿using Player.Die;
 using Player.Finish;
-using Player.Pickup;
+using Player.Interact;
+using Player.Sound;
 using Player.Status;
 using Player.Turn;
 using Presenter;
@@ -34,6 +35,7 @@ namespace Player
             _presenters.Add(new PlayerFinishPresenter(_gameModel, _model, _view));
             _presenters.Add(new PlayerStatusPresenter(_gameModel, _model, _view));
             _presenters.Add(new PlayerAnimatorPresenter(_gameModel, _model, _view));
+            _presenters.Add(new PlayerSoundPresenter(_gameModel, _model, _view));
             _presenters.Init();
             
             _physicsUpdater = new PlayerPhysicsUpdater(_gameModel.InputModel, _model, _view);

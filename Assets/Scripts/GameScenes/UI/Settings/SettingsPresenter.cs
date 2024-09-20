@@ -1,4 +1,5 @@
 ﻿using Presenter;
+using UnityEngine;
 
 namespace GameScenes.UI.Settings
 {
@@ -19,7 +20,9 @@ namespace GameScenes.UI.Settings
             
             _view.ChangeExitButtonState(false);
             _view.ChangeSettingsButtonState(true);
-
+            
+            _view.ExitButton.onClick.AddListener(HandleExit);
+            
             _gameModel.TutorialModel.IsComplete.OnChanged += HandleTutorialComplete;
             _gameModel.LevelModel.OnRestart.OnChanged += HandleRestart;
             _gameModel.LevelModel.OnNext.OnChanged += HandleRestart;
@@ -27,9 +30,16 @@ namespace GameScenes.UI.Settings
 
         public void Dispose()
         {
+            _view.ExitButton.onClick.RemoveListener(HandleExit);
+
             _gameModel.TutorialModel.IsComplete.OnChanged -= HandleTutorialComplete;
             _gameModel.LevelModel.OnRestart.OnChanged -= HandleRestart;
             _gameModel.LevelModel.OnNext.OnChanged -= HandleRestart;
+        }
+
+        private void HandleExit()
+        {
+            Application.Quit();
         }
 
         private void HandleRestart()

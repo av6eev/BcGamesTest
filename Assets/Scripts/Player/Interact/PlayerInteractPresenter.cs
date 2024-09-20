@@ -1,8 +1,7 @@
 ﻿using Interact;
 using Presenter;
-using UnityEngine;
 
-namespace Player.Pickup
+namespace Player.Interact
 {
     public class PlayerInteractPresenter : IPresenter
     {

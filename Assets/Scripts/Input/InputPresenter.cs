@@ -21,7 +21,6 @@ namespace Input
             _view.Initialize();
 
             _view.OnTouchDelta += HandleTouchDeltaInput;
-            
             _model.IsEnable.OnChanged += HandleStateChange;
         }
 
@@ -30,7 +29,6 @@ namespace Input
             _view.Dispose();
             
             _view.OnTouchDelta -= HandleTouchDeltaInput;
-            
             _model.IsEnable.OnChanged -= HandleStateChange;
         }
 

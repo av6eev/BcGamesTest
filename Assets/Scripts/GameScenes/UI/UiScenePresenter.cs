@@ -40,6 +40,7 @@ namespace GameScenes.UI
         public void Dispose()
         {
             _presenters.Dispose();
+            _presenters.Clear();
         }
     }
 }
