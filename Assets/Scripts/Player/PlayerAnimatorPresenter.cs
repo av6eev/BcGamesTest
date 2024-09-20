@@ -32,7 +32,6 @@ namespace Player
 
         private void HandleReady(bool newValue, bool oldValue)
         {
-            Debug.Log(newValue);
             _view.Animator.SetBool("IsRunning", newValue);
         }
 

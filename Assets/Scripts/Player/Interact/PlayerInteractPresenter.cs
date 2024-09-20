@@ -72,7 +72,6 @@ namespace Player.Pickup
             }
             
             _model.HandlePickup(resultPrice);
-            Object.Destroy(objectView.gameObject);
         }
     }
 }
