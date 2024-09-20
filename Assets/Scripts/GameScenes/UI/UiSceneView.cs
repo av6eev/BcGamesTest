@@ -6,7 +6,5 @@ namespace GameScenes.UI
 {
     public class UiSceneView : LocationSceneView
     {
-        public LoadingScreenView LoadingScreenView;
-        public EnterNicknamePanelView EnterNicknamePanelView;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using GameScenes.UI.EnterNicknamePanel;
 using Input;
+using Level.Manager;
 using Loader.Object;
 using Loader.Scene;
 using LoadingScreen;
@@ -19,6 +20,7 @@ public class GameModel : IGameModel
     public IInputModel InputModel { get; }
     public ILoadingScreenModel LoadingScreenModel { get; }
     public EnterNicknamePanelModel EnterNicknamePanelModel { get; set; }
+    public LevelManagerView LevelManager { get; set; }
 
     public GameModel(
         IUpdatersList updatersList,

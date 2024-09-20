@@ -30,6 +30,7 @@ namespace LocationBuilder
                     _presenters.Add(new UiScenePresenter(_gameModel, (UiSceneView)sceneView));
                     break;
                 case SceneConst.Level:
+                    _presenters.Add(new LevelScenePresenter(_gameModel, (LevelSceneView)sceneView));
                     break;
             }
         }

@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "space_adventure_lib": "https://github.com/av6eev/SpaceAdventureLib.git",
     "com.unity.addressables": "1.21.21",
+    "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.5.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.7.0",
@@ -9,6 +9,7 @@
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.2",
+    "space_adventure_lib": "https://github.com/av6eev/SpaceAdventureLib.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

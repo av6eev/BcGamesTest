@@ -21,8 +21,6 @@ namespace GameScenes.UI
         {
             _gameModel.InputModel.Disable();
 
-            _presenters.Add(new EnterNicknamePanelPresenter(_gameModel, _gameModel.EnterNicknamePanelModel, _view.EnterNicknamePanelView));
-            _presenters.Add(new LoadingScreenPresenter(_gameModel, (LoadingScreenModel)_gameModel.LoadingScreenModel, _view.LoadingScreenView));
             _presenters.Init();
         }
 
