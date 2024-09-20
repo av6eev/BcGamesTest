@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Reactive.Field;
+using UnityEngine;
 
 namespace Player
 {
@@ -14,5 +15,7 @@ namespace Player
         public bool IsReady;
         public bool IsNeedToTurn;
         public Vector3 TurnDirection;
+
+        public readonly ReactiveField<int> CurrentMoney = new();
     }
 }

@@ -1,7 +1,9 @@
 using Input;
+using Level;
 using Loader.Object;
 using Loader.Scene;
 using LoadingScreen;
+using Player;
 using Presenter;
 using SceneManagement;
 using SceneManagement.Collection;
@@ -40,7 +42,9 @@ public class Startup : MonoBehaviour
             new SceneManagementModelsCollection(),
             specifications, 
             new InputModel(), 
-            new LoadingScreenModel(false)
+            new LoadingScreenModel(false),
+            new PlayerModel(),
+            new LevelModel()
         );
 
         _gameModel.LoadScenesModel = new LoadScenesModel(new AddressableSceneLoadWrapper(_gameModel));

@@ -1,5 +1,6 @@
 ﻿using Input;
 using Level;
+using Level.Tutorial;
 using Loader.Object;
 using Loader.Scene;
 using LoadingScreen;
@@ -19,18 +20,20 @@ public class GameModel : IGameModel
     public IGameSpecifications Specifications { get; }
     public IInputModel InputModel { get; }
     public ILoadingScreenModel LoadingScreenModel { get; }
-    public PlayerModel PlayerModel { get; set; }
-    public LevelModel LevelModel { get; set; }
+    public PlayerModel PlayerModel { get; }
+    public LevelModel LevelModel { get; }
+    public TutorialModel TutorialModel { get; set; }
 
-    public GameModel(
-        IUpdatersList updatersList,
+    public GameModel(IUpdatersList updatersList,
         IUpdatersList fixedUpdatersList,
         IUpdatersList lateUpdatersList,
         ILoadObjectsModel loadObjectsModel,
         ISceneManagementModelsCollection sceneManagementModelsCollection,
         IGameSpecifications specifications,
         IInputModel inputModel,
-        ILoadingScreenModel loadingScreenModel)
+        ILoadingScreenModel loadingScreenModel,
+        PlayerModel playerModel,
+        LevelModel levelModel)
     {
         UpdatersList = updatersList;
         FixedUpdatersList = fixedUpdatersList;
@@ -40,5 +43,7 @@ public class GameModel : IGameModel
         Specifications = specifications;
         InputModel = inputModel;
         LoadingScreenModel = loadingScreenModel;
+        PlayerModel = playerModel;
+        LevelModel = levelModel;
     }
 }

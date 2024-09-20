@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &74201223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -634,6 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 680401492}
+  - component: {fileID: 680401493}
   m_Layer: 5
   m_Name: PlayerInfoView
   m_TagString: Untagged
@@ -661,6 +662,19 @@ RectTransform:
   m_AnchoredPosition: {x: 3.2735596, y: 0}
   m_SizeDelta: {x: -6.547119, y: 148.9073}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &680401493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680401491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acaef47bd4c4999bf6a8bd95ccad4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BalanceMoneyText: {fileID: 1979539350}
 --- !u!1 &704278126
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158757427}
   m_Layer: 5
-  m_Name: PlayerMoneyView
+  m_Name: PlayerMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,6 +1186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537788819}
+  - component: {fileID: 1537788820}
   m_Layer: 5
   m_Name: LevelInfoView
   m_TagString: Untagged
@@ -1200,6 +1215,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 3.0899658}
   m_SizeDelta: {x: 0, y: 2.0243988}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1537788820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537788818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef147d5cc31f4db2a5201be13de00262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentMoneyText: {fileID: 1468243929}
+  CurrentLevelText: {fileID: 249575613}
 --- !u!1 &1787010326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1624,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TutorialView: {fileID: 1973261750}
+  SettingsView: {fileID: 2138938816}
+  PlayerInfoView: {fileID: 680401493}
+  LevelInfoView: {fileID: 1537788820}
 --- !u!4 &2102222143
 Transform:
   m_ObjectHideFlags: 0
@@ -1619,6 +1651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2138938815}
+  - component: {fileID: 2138938816}
   m_Layer: 5
   m_Name: OtherButtons
   m_TagString: Untagged
@@ -1647,6 +1680,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 6.630005, y: -3.0899963}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &2138938816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138938814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b95da4e0af4b6bb7b8faf84cc0e318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitButton: {fileID: 74201224}
+  SettingsButton: {fileID: 1528219517}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

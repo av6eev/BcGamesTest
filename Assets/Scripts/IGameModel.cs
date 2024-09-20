@@ -1,5 +1,6 @@
 ﻿using Input;
 using Level;
+using Level.Tutorial;
 using Loader.Object;
 using Loader.Scene;
 using LoadingScreen;
@@ -23,4 +24,5 @@ public interface IGameModel : IBaseGameModel
     ILoadingScreenModel LoadingScreenModel { get; }
     PlayerModel PlayerModel { get; }
     LevelModel LevelModel { get; }
+    TutorialModel TutorialModel { get; }
 }

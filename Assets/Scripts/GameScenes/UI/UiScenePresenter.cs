@@ -1,4 +1,7 @@
-﻿using Level.Tutorial;
+﻿using GameScenes.UI.LevelInfo;
+using GameScenes.UI.PlayerInfo;
+using GameScenes.UI.Settings;
+using Level.Tutorial;
 using Presenter;
 
 namespace GameScenes.UI
@@ -19,8 +22,13 @@ namespace GameScenes.UI
         public void Init()
         {
             _gameModel.InputModel.Disable();
+
+            _gameModel.TutorialModel = new TutorialModel(true);
             
-            _presenters.Add(new TutorialPresenter(_gameModel, _view.TutorialView));
+            _presenters.Add(new SettingsPresenter(_gameModel, _view.SettingsView));
+            _presenters.Add(new PlayerInfoPresenter(_gameModel, _view.PlayerInfoView));
+            _presenters.Add(new LevelInfoPresenter(_gameModel, _view.LevelInfoView));
+            _presenters.Add(new TutorialPresenter(_gameModel, _gameModel.TutorialModel, _view.TutorialView));
             
             _presenters.Init();
         }

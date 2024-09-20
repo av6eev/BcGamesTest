@@ -1,7 +1,5 @@
-﻿using Level;
-using Player;
+﻿using Player;
 using SceneManagement;
-using UnityEngine;
 
 namespace GameScenes.Level
 {
@@ -19,13 +17,11 @@ namespace GameScenes.Level
         protected override async void AfterInit()
         {
             _gameModel.SceneManagementModelsCollection.SetCurrentSceneId(SceneConst.Level);
-            
-            _gameModel.LevelModel = new LevelModel(true);
-            _gameModel.PlayerModel = new PlayerModel();
+            _gameModel.LevelModel.Index.Value = _view.LevelManager.CurrentLevelIndex;
             
             Presenters.Add(new PlayerPresenter(_gameModel, _gameModel.PlayerModel, _view));
             
-            await _gameModel.LevelModel.TutorialCompleteAwaiter;
+            await _gameModel.TutorialModel.TutorialCompleteAwaiter;
 
             _gameModel.PlayerModel.IsReady = true;
         }
