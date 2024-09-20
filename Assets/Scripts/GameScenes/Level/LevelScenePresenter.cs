@@ -19,7 +19,7 @@ namespace GameScenes.Level
             _gameModel.SceneManagementModelsCollection.SetCurrentSceneId(SceneConst.Level);
             _gameModel.LevelModel.Index.Value = _view.LevelManager.CurrentLevelIndex;
             
-            Presenters.Add(new PlayerPresenter(_gameModel, _gameModel.PlayerModel, _view));
+            Presenters.Add(new PlayerPresenter(_gameModel, _gameModel.PlayerModel, _view.PlayerView));
             
             await _gameModel.TutorialModel.TutorialCompleteAwaiter;
 

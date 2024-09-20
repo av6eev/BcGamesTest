@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7150254307137287035}
   - component: {fileID: 5355763062831364357}
   - component: {fileID: 421886020345140441}
+  - component: {fileID: 1296705871177727459}
   m_Layer: 0
   m_Name: DoorRich
   m_TagString: Untagged
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9247179, y: 1.3767905, z: 0.13692537}
   m_Center: {x: -0.4443468, y: 0.6785934, z: 0.000000029802322}
+--- !u!114 &1296705871177727459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021461757098749397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc39f2f5d6748ac937c202535c869f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  AffectType: 2
+  Price: 0
+  Multiplier: 2

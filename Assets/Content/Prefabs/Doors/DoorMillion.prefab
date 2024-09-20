@@ -246,6 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5299576505097570950}
   - component: {fileID: 6459300077189839824}
+  - component: {fileID: 7887918890729751257}
   m_Layer: 0
   m_Name: DoorMillion
   m_TagString: Untagged
@@ -291,6 +292,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.306658, y: 5.411972, z: 0.58806}
   m_Center: {x: 0, y: 2.64, z: 0}
+--- !u!114 &7887918890729751257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4127316392567778029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc39f2f5d6748ac937c202535c869f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  AffectType: 0
+  Price: 0
+  Multiplier: 4
 --- !u!1001 &8919383434950182201
 PrefabInstance:
   m_ObjectHideFlags: 0

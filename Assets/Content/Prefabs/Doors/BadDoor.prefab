@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 7625285322428010728}
   - component: {fileID: 4429667271353637778}
   - component: {fileID: 7639845775601768976}
+  - component: {fileID: 1470183129711706252}
   m_Layer: 0
   m_Name: BadDoor
   m_TagString: Untagged
@@ -426,3 +427,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.87, y: 1.4, z: 0.07806701}
   m_Center: {x: 0.00094920397, y: 0.6993147, z: 0}
+--- !u!114 &1470183129711706252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6711709954562469228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc39f2f5d6748ac937c202535c869f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  AffectType: 1
+  Price: 10

@@ -1,9 +1,7 @@
-﻿using GameScenes.Level;
-using Level.Road;
-using Presenter;
+﻿using Presenter;
 using UnityEngine;
 
-namespace Player
+namespace Player.Turn
 {
     public class PlayerTurnPresenter : IPresenter
     {
@@ -20,17 +18,32 @@ namespace Player
         
         public void Init()
         {
+            _model.IsNeedToTurn.OnChanged += HandleTurnStateChange;
             _view.OnTurn += HandleTurn;
         }
 
         public void Dispose()
         {
+            _model.IsNeedToTurn.OnChanged -= HandleTurnStateChange;
             _view.OnTurn -= HandleTurn;
+        }
+
+        private void HandleTurnStateChange(bool newValue, bool oldValue)
+        {
+            switch (newValue)
+            {
+                case true:
+                    _gameModel.InputModel.Disable();
+                    break;
+                case false:
+                    _gameModel.InputModel.Enable();
+                    break;
+            }
         }
 
         private void HandleTurn(Vector3 direction)
         {
-            _model.IsNeedToTurn = true;
+            _model.IsNeedToTurn.Value = true;
             _model.TurnDirection = direction;
         }
     }

@@ -11,11 +11,22 @@ namespace Player
         public const float SideSpeed = 1.3f;
         
         public float CurrentSpeed;
-
-        public bool IsReady;
-        public bool IsNeedToTurn;
         public Vector3 TurnDirection;
 
+        public bool IsReady;
+        public bool IsCollide;
+        public readonly ReactiveField<bool> IsNeedToTurn = new();
         public readonly ReactiveField<int> CurrentMoney = new();
+        public readonly ReactiveField<int> MaxMoneyMultiplier = new();
+
+        public void HandlePickup(int price)
+        {
+            CurrentMoney.Value += price;
+
+            if (CurrentMoney.Value <= 0)
+            {
+                CurrentMoney.Value = 0;
+            }
+        }
     }
 }

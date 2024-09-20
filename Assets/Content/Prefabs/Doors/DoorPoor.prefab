@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 96171925474248526}
   - component: {fileID: 5057974677407300864}
   - component: {fileID: 1290466453624289820}
+  - component: {fileID: 1455940532703817122}
   m_Layer: 0
   m_Name: DoorPoor
   m_TagString: Untagged
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9862335, y: 1.2811351, z: 0.10129779}
   m_Center: {x: 0.4207009, y: 0.6392293, z: 0.032261644}
+--- !u!114 &1455940532703817122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041665516383910209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc39f2f5d6748ac937c202535c869f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  AffectType: 0
+  Price: 0
+  Multiplier: 3
