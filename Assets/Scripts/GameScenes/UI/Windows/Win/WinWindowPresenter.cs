@@ -17,6 +17,7 @@ namespace GameScenes.UI.Windows.Win
         
         public void Init()
         {
+            _view.SetupDollarsForAnimation();
             _view.Hide();
             
             _view.GetButton.onClick.AddListener(HandleGetClick);
@@ -29,8 +30,11 @@ namespace GameScenes.UI.Windows.Win
             _gameModel.LevelModel.IsFinished.OnChanged -= HandleFinish;
         }
 
-        private void HandleGetClick()
+        private async void HandleGetClick()
         {
+            _view.PlayDollarsAnimation();
+            await _view.AnimationAwaiter;
+            
             _gameModel.PlayerModel.CalculateSavedMoney();
             _gameModel.UpdateLevelIndex("2");
             _gameModel.LevelModel.Next();
