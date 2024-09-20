@@ -47,7 +47,7 @@ namespace Level.Tutorial
         private void HandleTutorialComplete()
         {
             _model.CompleteTutorial();
-            _gameModel.PlayerModel.IsReady = true;
+            _gameModel.PlayerModel.IsReady.Value = true;
             _view.Hide();
         }
     }

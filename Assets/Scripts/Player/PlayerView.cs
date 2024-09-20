@@ -19,6 +19,8 @@ namespace Player
         public TextMeshProUGUI StatusText;
         
         public List<GameObject> Skins;
+        public Animator Animator;
+        
         private int _skinIndex = 0;
         
         public void Move(Vector3 direction)

@@ -33,6 +33,7 @@ namespace Player
             _presenters.Add(new PlayerDiePresenter(_gameModel, _model, _view));
             _presenters.Add(new PlayerFinishPresenter(_gameModel, _model, _view));
             _presenters.Add(new PlayerStatusPresenter(_gameModel, _model, _view));
+            _presenters.Add(new PlayerAnimatorPresenter(_gameModel, _model, _view));
             _presenters.Init();
             
             _physicsUpdater = new PlayerPhysicsUpdater(_gameModel.InputModel, _model, _view);

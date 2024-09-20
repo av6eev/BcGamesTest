@@ -18,8 +18,8 @@ namespace Player
         public float CurrentSpeed;
         public Vector3 TurnDirection;
 
-        public bool IsReady;
         public bool IsCollide;
+        public readonly ReactiveField<bool> IsReady = new();
         public readonly ReactiveField<bool> IsNeedToTurn = new();
         public readonly ReactiveField<int> CurrentMoney = new();
         public readonly ReactiveField<int> SavedMoney = new(PlayerPrefs.GetString(SaveKeys.PlayerSavedMoney, string.Empty) == string.Empty ? 0 : Convert.ToInt32(PlayerPrefs.GetString(SaveKeys.PlayerSavedMoney)));
@@ -54,7 +54,7 @@ namespace Player
 
         public void Reset(bool isResetMoney)
         {
-            IsReady = false;
+            IsReady.Value = false;
             IsNeedToTurn.Value = false;
             IsCollide = false;
             CurrentSpeed = 0;

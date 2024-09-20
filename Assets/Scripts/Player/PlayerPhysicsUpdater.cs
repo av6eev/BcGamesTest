@@ -25,7 +25,7 @@ namespace Player
         
         public void Update(float deltaTime)
         {
-            if (!_model.IsReady) return;
+            if (!_model.IsReady.Value) return;
             Move(deltaTime);
             Turn(deltaTime);
         }
