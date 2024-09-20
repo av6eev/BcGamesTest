@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Presenter;
+﻿using Presenter;
 
 namespace GameScenes
 {
@@ -9,7 +7,7 @@ namespace GameScenes
         protected readonly IGameModel GameModel;
         private readonly BaseGameSceneView _view;
 
-        protected readonly Dictionary<string, IPresenter> Presenters = new();
+        protected readonly PresentersList Presenters = new();
         
         protected BaseGameScenePresenter(IGameModel gameModel, BaseGameSceneView view)
         {
@@ -17,38 +15,19 @@ namespace GameScenes
             _view = view;
         }
         
-        public async void Init()
+        public void Init()
         {
             AfterInit();
             
-            GameModel.LoadingScreenModel.SetMaxLoadElementsCount(Presenters.Count);
-
-            foreach (var presenter in Presenters)
-            {
-                GameModel.LoadingScreenModel.UpdateScreenMessage(presenter.Key);
-                GameModel.LoadingScreenModel.IncrementProgressValue();
-
-                presenter.Value.Init();
-                
-                await Task.Delay(1000);
-            }
-
-            await Task.Delay(1500);
-            
-            GameModel.LoadingScreenModel.Hide();
+            Presenters.Init();
             GameModel.InputModel.Enable();
         }
 
         public void Dispose()
         {
-            GameModel.LoadingScreenModel.Show();
             GameModel.InputModel.Disable();
-
-            foreach (var presenter in Presenters.Values)
-            {
-                presenter.Dispose();
-            }
             
+            Presenters.Dispose();
             Presenters.Clear();
             
             AfterDispose();

@@ -1,4 +1,5 @@
 ﻿using Level.Manager;
+using Player;
 using UnityEngine;
 
 namespace GameScenes.Level
@@ -7,5 +8,6 @@ namespace GameScenes.Level
     {
         public LevelManagerView LevelManager;
         public Transform LevelRoot;
+        public PlayerView PlayerView;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Reactive.Event;
 using Reactive.Field;
+using UnityEngine;
 
 namespace Input
 {
@@ -7,7 +8,7 @@ namespace Input
     {
         ReactiveEvent OnDebugPanelToggle { get; }
         ReactiveField<bool> IsEnable { get; }
-        float TurnInput { get; }
+        Vector2 SideInput { get; }
         void Enable();
         void Disable();
     }

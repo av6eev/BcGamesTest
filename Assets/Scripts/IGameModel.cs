@@ -1,9 +1,9 @@
-﻿using GameScenes.UI.EnterNicknamePanel;
-using Input;
-using Level.Manager;
+﻿using Input;
+using Level;
 using Loader.Object;
 using Loader.Scene;
 using LoadingScreen;
+using Player;
 using SceneManagement.Collection;
 using Specifications;
 using Updater;
@@ -21,6 +21,6 @@ public interface IGameModel : IBaseGameModel
     IGameSpecifications Specifications { get; }
     IInputModel InputModel { get; }
     ILoadingScreenModel LoadingScreenModel { get; }
-    EnterNicknamePanelModel EnterNicknamePanelModel { get; }
-    LevelManagerView LevelManager { get; }
+    PlayerModel PlayerModel { get; }
+    LevelModel LevelModel { get; }
 }

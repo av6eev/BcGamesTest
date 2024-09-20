@@ -1,5 +1,4 @@
-﻿using GameScenes.UI.EnterNicknamePanel;
-using LoadingScreen;
+﻿using Level.Tutorial;
 using Presenter;
 
 namespace GameScenes.UI
@@ -20,7 +19,9 @@ namespace GameScenes.UI
         public void Init()
         {
             _gameModel.InputModel.Disable();
-
+            
+            _presenters.Add(new TutorialPresenter(_gameModel, _view.TutorialView));
+            
             _presenters.Init();
         }
 

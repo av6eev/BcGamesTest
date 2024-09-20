@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Level.Road;
 using UnityEngine;
 
 namespace Level
@@ -6,7 +7,8 @@ namespace Level
     public class LevelView : MonoBehaviour
     {
         [SerializeField] private Transform playerSpawnPoint;
-        [SerializeField] private List<Transform> RoadElements;
+        [SerializeField] private List<RoadView> RoadElements;
+        private int _nextElementIndex = 1;
         
 #if UNITY_EDITOR
     private void OnDrawGizmos()
@@ -25,8 +27,8 @@ namespace Level
         {
             for (var i = 0; i < RoadElements.Count - 1; i++)
             {
-                var current = RoadElements[i].position;
-                var next = RoadElements[i + 1].position;
+                var current = RoadElements[i].transform.position;
+                var next = RoadElements[i + 1].transform.position;
                 
                 Gizmos.color = Color.black;
                 Gizmos.DrawLine(current, next);
@@ -36,5 +38,17 @@ namespace Level
         }
     }
 #endif
+        
+        public float GetNextTurn(Vector3 position)
+        {
+            var forward = RoadElements[_nextElementIndex].transform.position - position;
+            
+            if (forward.magnitude < 0.1f)
+            {
+                _nextElementIndex += 1;
+            }
+            
+            return Mathf.Atan2(forward.x, forward.z) * Mathf.Rad2Deg;
+        }
     }
 }

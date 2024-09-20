@@ -1,4 +1,3 @@
-using GameScenes.UI.EnterNicknamePanel;
 using Input;
 using Loader.Object;
 using Loader.Scene;
@@ -44,7 +43,6 @@ public class Startup : MonoBehaviour
             new LoadingScreenModel(false)
         );
 
-        _gameModel.EnterNicknamePanelModel = new EnterNicknamePanelModel();
         _gameModel.LoadScenesModel = new LoadScenesModel(new AddressableSceneLoadWrapper(_gameModel));
 
         if (PlayerPrefs.GetInt("first_init") == 0)
@@ -57,12 +55,6 @@ public class Startup : MonoBehaviour
         _presenters.Init();
         
         _gameModel.SceneManagementModelsCollection.Load(SceneConst.Ui);
-        _gameModel.EnterNicknamePanelModel.Show();
-
-        await _gameModel.EnterNicknamePanelModel.ConfirmAwaiter;
-        
-        _gameModel.EnterNicknamePanelModel.Hide();
-        _gameModel.LoadingScreenModel.Show();
         _gameModel.SceneManagementModelsCollection.Load(SceneConst.Level);
     }
 

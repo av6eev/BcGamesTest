@@ -166,8 +166,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Touch
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInputAsset: {fileID: -944628639613478452, guid: 424b87df52d32e44d934391fa7892375, type: 3}
+  PlayerInput: {fileID: 312483491}
 --- !u!4 &312483493
 Transform:
   m_ObjectHideFlags: 0

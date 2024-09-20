@@ -1,10 +1,10 @@
-﻿using GameScenes.UI.EnterNicknamePanel;
-using LoadingScreen;
+﻿using Level.Tutorial;
 using LocationBuilder;
 
 namespace GameScenes.UI
 {
     public class UiSceneView : LocationSceneView
     {
+        public TutorialView TutorialView;
     }
 }
