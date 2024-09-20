@@ -1,6 +1,7 @@
 ﻿using Player.Die;
 using Player.Finish;
 using Player.Pickup;
+using Player.Status;
 using Player.Turn;
 using Presenter;
 using Updater;
@@ -31,6 +32,7 @@ namespace Player
             _presenters.Add(new PlayerInteractPresenter(_gameModel, _model, _view));
             _presenters.Add(new PlayerDiePresenter(_gameModel, _model, _view));
             _presenters.Add(new PlayerFinishPresenter(_gameModel, _model, _view));
+            _presenters.Add(new PlayerStatusPresenter(_gameModel, _model, _view));
             _presenters.Init();
             
             _physicsUpdater = new PlayerPhysicsUpdater(_gameModel.InputModel, _model, _view);
@@ -39,6 +41,9 @@ namespace Player
 
         public void Dispose()
         {
+            _presenters.Dispose();
+            _presenters.Clear();
+            
             _gameModel.FixedUpdatersList.Remove(_physicsUpdater);
         }
     }

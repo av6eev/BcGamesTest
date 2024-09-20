@@ -18,7 +18,7 @@ namespace GameScenes.UI.Windows.Win
 
         [NonSerialized] public readonly List<Vector3> DollarsInitialPositions = new();
         [NonSerialized] public readonly List<Quaternion> DollarsInitialRotations = new();
-        [NonSerialized] public readonly CustomAwaiter AnimationAwaiter = new();
+        [NonSerialized] public CustomAwaiter AnimationAwaiter = new();
         
         public void SetupDollarsForAnimation()
         {
@@ -42,6 +42,13 @@ namespace GameScenes.UI.Windows.Win
             }
         }
 
+        public override void Hide()
+        {
+            base.Hide();
+
+            AnimationAwaiter = new CustomAwaiter();
+        }
+
         public async void PlayDollarsAnimation()
         {
             var delay = 0f;
@@ -55,15 +62,15 @@ namespace GameScenes.UI.Windows.Win
                 var child = DollarsRoot.GetChild(i);
 
                 child.DOScale(1f, .3f).SetDelay(delay).SetEase(Ease.OutBack);
-                child.GetComponent<RectTransform>().DOAnchorPos(new Vector2(460f, 840f), .7f).SetDelay(delay + .1f).SetEase(Ease.InBack);
+                child.GetComponent<RectTransform>().DOAnchorPos(new Vector2(460f, 840f), .5f).SetDelay(delay + .1f).SetEase(Ease.InBack);
 
-                child.DORotate(Vector3.zero, .5f).SetDelay(delay + .5f).SetEase(Ease.Flash);
-                child.DOScale(0f, .3f).SetDelay(delay + 1f).SetEase(Ease.OutBack);
+                child.DORotate(Vector3.zero, .3f).SetDelay(delay + .2f).SetEase(Ease.Flash);
+                child.DOScale(0f, .3f).SetDelay(delay + .4f).SetEase(Ease.OutBack);
                 
-                delay += .1f;
+                delay += .06f;
             }
 
-            await Task.Delay(3000);
+            await Task.Delay(2000);
             AnimationAwaiter.Complete();
         }
     }

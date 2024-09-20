@@ -8,6 +8,8 @@ namespace GameScenes.UI.Windows.Win
         private readonly WinWindowView _view;
         private readonly UiSceneView _sceneView;
 
+        private int _clickCount;
+        
         public WinWindowPresenter(IGameModel gameModel, WinWindowView view, UiSceneView sceneView)
         {
             _gameModel = gameModel;
@@ -32,6 +34,10 @@ namespace GameScenes.UI.Windows.Win
 
         private async void HandleGetClick()
         {
+            if (_clickCount == 1) return;
+            
+            _clickCount++;
+            
             _view.PlayDollarsAnimation();
             await _view.AnimationAwaiter;
             
@@ -40,6 +46,7 @@ namespace GameScenes.UI.Windows.Win
             _gameModel.LevelModel.Next();
             
             _view.Hide();
+            _clickCount = 0;
         }
 
         private void HandleFinish(bool newValue, bool oldValue)

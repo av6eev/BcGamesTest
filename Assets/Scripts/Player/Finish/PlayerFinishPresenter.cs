@@ -31,6 +31,7 @@ namespace Player.Finish
         {
             if (!newValue) return;
             
+            _view.StatusRoot.SetActive(false);
             _model.Reset(false);
             
             PlayerPrefs.SetString(SaveKeys.PlayerSavedMoney, _model.SavedMoney.Value.ToString());

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Interact;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -10,7 +13,14 @@ namespace Player
         public event Action<InteractObjectView> OnInteract; 
         
         public Rigidbody Rigidbody;
-
+        
+        public GameObject StatusRoot;
+        public Image FillBar;
+        public TextMeshProUGUI StatusText;
+        
+        public List<GameObject> Skins;
+        private int _skinIndex = 0;
+        
         public void Move(Vector3 direction)
         {
             transform.Translate(direction, Space.Self);
@@ -30,10 +40,42 @@ namespace Player
         {
             OnInteract?.Invoke(objectView);
         }
-
-        public void ResetPosition(Vector3 spawnPoint)
+        
+        public void SetDefaultSkin()
         {
-            transform.position = spawnPoint;
-        }
+            _skinIndex = 0;
+
+            for (var i = 0; i < Skins.Count; i++)
+            {
+                if (i == 0) 
+                {
+                    Skins[i].SetActive(true);
+                    continue;
+                }
+                
+                Skins[i].SetActive(false);
+            }
+        } 
+        
+        public void UpgradeSkin(bool isPositive)
+        {
+            if (isPositive)
+            {
+                if (Skins[_skinIndex + 1] == null) return;
+            
+                Skins[_skinIndex].SetActive(false);
+                _skinIndex++;
+                Skins[_skinIndex].SetActive(true);
+            }
+            else
+            {
+                if (Skins[_skinIndex - 1] == null) return;
+            
+                Skins[_skinIndex].SetActive(false);
+                _skinIndex--;
+                Skins[_skinIndex].SetActive(true);
+            }
+            
+        } 
     }
 }

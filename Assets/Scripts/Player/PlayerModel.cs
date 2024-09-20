@@ -24,6 +24,8 @@ namespace Player
         public readonly ReactiveField<int> CurrentMoney = new();
         public readonly ReactiveField<int> SavedMoney = new(PlayerPrefs.GetString(SaveKeys.PlayerSavedMoney, string.Empty) == string.Empty ? 0 : Convert.ToInt32(PlayerPrefs.GetString(SaveKeys.PlayerSavedMoney)));
         public readonly ReactiveField<int> MaxMoneyMultiplier = new();
+        public readonly ReactiveField<float> CurrentStatusProgress = new();
+        public readonly ReactiveField<PlayerStatusType> CurrentStatusType = new(PlayerStatusType.Poor);
         
         public void HandlePickup(int price)
         {
@@ -57,11 +59,39 @@ namespace Player
             IsCollide = false;
             CurrentSpeed = 0;
             TurnDirection = Vector3.zero;
+            CurrentStatusProgress.Value = 0;
+            CurrentStatusType.Value = PlayerStatusType.Poor;
 
             if (!isResetMoney) return;
-            
+
             MaxMoneyMultiplier.Value = 0;
             CurrentMoney.Value = 0;
+        }
+
+        public void UpdateStatus(float value)
+        {
+            CurrentStatusProgress.Value += value;
+            var newStatus = PlayerStatusType.Poor;
+            
+            switch (CurrentStatusProgress.Value)
+            {
+                case <= .4f:
+                    newStatus = PlayerStatusType.Poor;
+                    break;
+                case > .4f and <= .8f:
+                    newStatus = PlayerStatusType.Rich;
+                    break;
+                case > .8f:
+                    newStatus = PlayerStatusType.Millionaire;
+                    break;
+            }
+
+            CurrentStatusType.Value = newStatus;
+
+            if (CurrentStatusProgress.Value >= 1f)
+            {
+                CurrentStatusProgress.Value = 1f;
+            }
         }
     }
 }
