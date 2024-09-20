@@ -23,6 +23,8 @@ public class GameModel : IGameModel
     public PlayerModel PlayerModel { get; }
     public LevelModel LevelModel { get; }
     public TutorialModel TutorialModel { get; set; }
+    
+    public string CurrentLevelId { get; private set; }
 
     public GameModel(IUpdatersList updatersList,
         IUpdatersList fixedUpdatersList,
@@ -46,4 +48,6 @@ public class GameModel : IGameModel
         PlayerModel = playerModel;
         LevelModel = levelModel;
     }
+
+    public void UpdateLevelIndex(string id) => CurrentLevelId = id;
 }

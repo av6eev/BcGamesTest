@@ -4,6 +4,8 @@
     {
         Prop,
         Door,
-        Obstacle
+        Obstacle,
+        FinishLine,
+        Finish
     }
 }

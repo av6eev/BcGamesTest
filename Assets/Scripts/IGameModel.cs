@@ -25,4 +25,7 @@ public interface IGameModel : IBaseGameModel
     PlayerModel PlayerModel { get; }
     LevelModel LevelModel { get; }
     TutorialModel TutorialModel { get; }
+    string CurrentLevelId { get; }
+
+    void UpdateLevelIndex(string id);
 }

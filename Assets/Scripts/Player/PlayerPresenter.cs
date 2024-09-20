@@ -1,4 +1,5 @@
-﻿using GameScenes.Level;
+﻿using Player.Die;
+using Player.Finish;
 using Player.Pickup;
 using Player.Turn;
 using Presenter;
@@ -24,8 +25,12 @@ namespace Player
         
         public void Init()
         {
+            _model.CurrentMoney.Value = 0;
+            
             _presenters.Add(new PlayerTurnPresenter(_gameModel, _model, _view));
-            _presenters.Add(new PlayerPickupPresenter(_gameModel, _model, _view));
+            _presenters.Add(new PlayerInteractPresenter(_gameModel, _model, _view));
+            _presenters.Add(new PlayerDiePresenter(_gameModel, _model, _view));
+            _presenters.Add(new PlayerFinishPresenter(_gameModel, _model, _view));
             _presenters.Init();
             
             _physicsUpdater = new PlayerPhysicsUpdater(_gameModel.InputModel, _model, _view);

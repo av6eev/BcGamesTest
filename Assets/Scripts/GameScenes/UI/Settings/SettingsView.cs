@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using GameScenes.UI.Windows;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace GameScenes.UI.Settings
 {
-    public class SettingsView : MonoBehaviour
+    public class SettingsView : WindowView
     {
         public Button ExitButton;
         public Button SettingsButton;

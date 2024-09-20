@@ -5,14 +5,14 @@ namespace GameScenes
     public abstract class BaseGameScenePresenter : IPresenter
     {
         protected readonly IGameModel GameModel;
-        private readonly BaseGameSceneView _view;
+        private readonly BaseGameSceneView _sceneView;
 
         protected readonly PresentersList Presenters = new();
         
-        protected BaseGameScenePresenter(IGameModel gameModel, BaseGameSceneView view)
+        protected BaseGameScenePresenter(IGameModel gameModel, BaseGameSceneView sceneView)
         {
             GameModel = gameModel;
-            _view = view;
+            _sceneView = sceneView;
         }
         
         public void Init()
@@ -20,6 +20,7 @@ namespace GameScenes
             AfterInit();
             
             Presenters.Init();
+            
             GameModel.InputModel.Enable();
         }
 

@@ -1,6 +1,8 @@
 ﻿using GameScenes.UI.LevelInfo;
 using GameScenes.UI.PlayerInfo;
 using GameScenes.UI.Settings;
+using GameScenes.UI.Windows.Lose;
+using GameScenes.UI.Windows.Win;
 using Level.Tutorial;
 using Presenter;
 
@@ -28,6 +30,8 @@ namespace GameScenes.UI
             _presenters.Add(new SettingsPresenter(_gameModel, _view.SettingsView));
             _presenters.Add(new PlayerInfoPresenter(_gameModel, _view.PlayerInfoView));
             _presenters.Add(new LevelInfoPresenter(_gameModel, _view.LevelInfoView));
+            _presenters.Add(new WinWindowPresenter(_gameModel, _view.WinWindowView, _view));
+            _presenters.Add(new LoseWindowPresenter(_gameModel, _view.LoseWindowView, _view));
             _presenters.Add(new TutorialPresenter(_gameModel, _gameModel.TutorialModel, _view.TutorialView));
             
             _presenters.Init();

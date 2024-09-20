@@ -7,7 +7,7 @@ namespace Player
     public class PlayerView : MonoBehaviour
     {
         public event Action<Vector3> OnTurn;
-        public event Action<InteractObjectView> OnPickUp; 
+        public event Action<InteractObjectView> OnInteract; 
         
         public Rigidbody Rigidbody;
 
@@ -28,7 +28,12 @@ namespace Player
 
         public void InvokePickUp(InteractObjectView objectView)
         {
-            OnPickUp?.Invoke(objectView);
+            OnInteract?.Invoke(objectView);
+        }
+
+        public void ResetPosition(Vector3 spawnPoint)
+        {
+            transform.position = spawnPoint;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Level;
+using Player;
 using SceneManagement;
 
 namespace GameScenes.Level
@@ -6,24 +7,20 @@ namespace GameScenes.Level
     public class LevelScenePresenter : BaseGameScenePresenter
     {
         private readonly GameModel _gameModel;
-        private readonly LevelSceneView _view;
+        private readonly LevelSceneView _sceneView;
 
-        public LevelScenePresenter(GameModel gameModel, LevelSceneView view) : base(gameModel, view)
+        public LevelScenePresenter(GameModel gameModel, LevelSceneView sceneView) : base(gameModel, sceneView)
         {
             _gameModel = gameModel;
-            _view = view;
+            _sceneView = sceneView;
         }
 
-        protected override async void AfterInit()
+        protected override void AfterInit()
         {
             _gameModel.SceneManagementModelsCollection.SetCurrentSceneId(SceneConst.Level);
-            _gameModel.LevelModel.Index.Value = _view.LevelManager.CurrentLevelIndex;
             
-            Presenters.Add(new PlayerPresenter(_gameModel, _gameModel.PlayerModel, _view.PlayerView));
-            
-            await _gameModel.TutorialModel.TutorialCompleteAwaiter;
-
-            _gameModel.PlayerModel.IsReady = true;
+            Presenters.Add(new PlayerPresenter(_gameModel, _gameModel.PlayerModel, _sceneView.PlayerView));
+            Presenters.Add(new LevelPresenter(_gameModel, _gameModel.LevelModel, _sceneView));
         }
 
         protected override void AfterDispose()

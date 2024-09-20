@@ -7,6 +7,7 @@ namespace Utilities.Initializer
         public void Initialize(GameModel gameModel)
         {
             PlayerPrefs.SetInt("first_init", 1);    
+            gameModel.UpdateLevelIndex("1");
         }
     }
 }

@@ -5,15 +5,15 @@ namespace Level.Tutorial
 {
     public class TutorialModel
     {
-        private readonly bool _isNeedTutorial;
+        public readonly bool IsNeedTutorial;
         
         public readonly ReactiveField<bool> IsComplete = new();
         public CustomAwaiter TutorialCompleteAwaiter = new();
 
         public TutorialModel(bool isNeedTutorial)
         {
-            _isNeedTutorial = isNeedTutorial;
-            if (_isNeedTutorial) return;
+            IsNeedTutorial = isNeedTutorial;
+            if (IsNeedTutorial) return;
             
             IsComplete.Value = true;
             TutorialCompleteAwaiter.Complete();
@@ -27,7 +27,7 @@ namespace Level.Tutorial
         
         public void Reset()
         {
-            if (!_isNeedTutorial) return;
+            if (!IsNeedTutorial) return;
 
             IsComplete.Value = default;
             TutorialCompleteAwaiter = new CustomAwaiter();

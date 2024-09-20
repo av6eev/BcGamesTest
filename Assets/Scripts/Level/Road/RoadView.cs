@@ -26,8 +26,6 @@ namespace Level.Road
                     break;
             }
             
-            Debug.Log(direction);
-            
             other.GetComponent<PlayerView>().InvokeTurn(direction);
         }
     }

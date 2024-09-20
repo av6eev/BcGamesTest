@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Input;
 using Level;
 using Loader.Object;
@@ -28,6 +29,7 @@ public class Startup : MonoBehaviour
     private async void Start()
     {
         Application.runInBackground = true;
+        DOTween.Init();
         
         var loadObjectsModel = new LoadObjectsModel(new AddressableObjectLoadWrapper());
         var specifications = new GameSpecifications(loadObjectsModel);
@@ -44,14 +46,18 @@ public class Startup : MonoBehaviour
             new InputModel(), 
             new LoadingScreenModel(false),
             new PlayerModel(),
-            new LevelModel()
+            new LevelModel("1")
         );
-
+        
         _gameModel.LoadScenesModel = new LoadScenesModel(new AddressableSceneLoadWrapper(_gameModel));
-
+        
         if (PlayerPrefs.GetInt("first_init") == 0)
         {
             new FirstInitializer().Initialize(_gameModel);
+        }
+        else
+        {
+            _gameModel.UpdateLevelIndex("1");
         }
         
         _presenters.Add(new SceneManagementModelsCollectionPresenter(_gameModel, (SceneManagementModelsCollection)_gameModel.SceneManagementModelsCollection));

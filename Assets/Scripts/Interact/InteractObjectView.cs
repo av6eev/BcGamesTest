@@ -15,7 +15,6 @@ namespace Interact
             if (!other.CompareTag("Player")) return;
             
             other.GetComponent<PlayerView>().InvokePickUp(this);
-            Destroy(gameObject);
         }
     }
 }

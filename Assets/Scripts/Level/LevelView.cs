@@ -6,18 +6,18 @@ namespace Level
 {
     public class LevelView : MonoBehaviour
     {
-        [SerializeField] private Transform playerSpawnPoint;
+        public Transform PlayerSpawnPoint;
         [SerializeField] private List<RoadView> RoadElements;
         private int _nextElementIndex = 1;
         
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (playerSpawnPoint != null)
+        if (PlayerSpawnPoint != null)
         {
             Gizmos.color = Color.magenta;
             var m = Gizmos.matrix;
-            Gizmos.matrix = playerSpawnPoint.localToWorldMatrix;
+            Gizmos.matrix = PlayerSpawnPoint.localToWorldMatrix;
             Gizmos.DrawSphere(Vector3.up * 0.5f + Vector3.forward, 0.5f);
             Gizmos.DrawCube(Vector3.up * 0.5f, Vector3.one);
             Gizmos.matrix = m;

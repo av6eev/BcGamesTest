@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090d1ab5d2cad7e499d4cbfc952cbd8b, type: 3}
   m_Name: Levels List
   m_EditorClassIdentifier: 
-  randomizedLvls: 0
+  randomizedLvls: 1
   lvls:
   - {fileID: 5417798953872147432, guid: 04d11c9b2db8d614a9c9044f12ab5392, type: 3}
-  - {fileID: 5417798953872147432, guid: fd1755fde68b35e41a6bba210ab32563, type: 3}

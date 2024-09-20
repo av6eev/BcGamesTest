@@ -15,15 +15,26 @@ namespace GameScenes.UI.Settings
         
         public void Init()
         {
+            _view.Show();
+            
             _view.ChangeExitButtonState(false);
             _view.ChangeSettingsButtonState(true);
 
             _gameModel.TutorialModel.IsComplete.OnChanged += HandleTutorialComplete;
+            _gameModel.LevelModel.OnRestart.OnChanged += HandleRestart;
+            _gameModel.LevelModel.OnNext.OnChanged += HandleRestart;
         }
 
         public void Dispose()
         {
             _gameModel.TutorialModel.IsComplete.OnChanged -= HandleTutorialComplete;
+            _gameModel.LevelModel.OnRestart.OnChanged -= HandleRestart;
+            _gameModel.LevelModel.OnNext.OnChanged -= HandleRestart;
+        }
+
+        private void HandleRestart()
+        {
+            _view.Show();
         }
 
         private void HandleTutorialComplete(bool newValue, bool oldValue)
